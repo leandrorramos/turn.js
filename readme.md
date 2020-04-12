@@ -3,11 +3,13 @@ with support for npm/yarn.
 
 ## Usage
 
-### JS
+```npm i @ksedline/turnjs```
+
+### JavaScript
 
 ```
 import $ from 'jquery';
-import 'turn.js';
+import '@ksedline/turnjs';
 
 $('#magazine').turn({
   width: 800,
