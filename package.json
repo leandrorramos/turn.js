@@ -1,12 +1,19 @@
 {
-  "name": "turn.js",
-  "version": "1.0.5",
-  "description": "Web page flipper",
+  "name": "turnjs",
+  "version": "0.1.0",
+  "description": "TurnJS Implementation",
   "main": "index.js",
-  "repository": "https://github.com/igghera/turn.js.git",
-  "author": "Andrea Gherardi <a.gherardi@cantierecreativo.net>",
-  "license": "MIT",
-  "dependencies": {
-    "jquery": "1.12.0"
-  }
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ksedline/turn.js.git"
+  },
+  "author": "Kirill <ksedline@gmail.com> (ksed.dev)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ksedline/turn.js/issues"
+  },
+  "homepage": "https://github.com/Ksedline/turn.js#readme"
 }
