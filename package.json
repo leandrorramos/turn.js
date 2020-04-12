@@ -1,7 +1,8 @@
 {
-  "name": "turnjs",
+  "name": "@ksedline/turnjs",
   "version": "0.1.0",
   "description": "TurnJS Implementation",
+  "private": false,
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
