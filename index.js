@@ -127,7 +127,7 @@ var has3d,
 
       if (options.when)
         for (i in options.when)
-          if (has(i, options.when)) this.bind(i, options.when[i]);
+          if (has(i, options.when)) this.on(i, options.when[i]);
 
       // Set the css
 
@@ -162,17 +162,17 @@ var has3d,
       // Event listeners
 
       $(this)
-        .bind(mouseEvents.down, data.eventHandlers.touchStart)
-        .bind("end", turnMethods._eventEnd)
-        .bind("pressed", turnMethods._eventPressed)
-        .bind("released", turnMethods._eventReleased)
-        .bind("flip", turnMethods._flip);
+        .on(mouseEvents.down, data.eventHandlers.touchStart)
+        .on("end", turnMethods._eventEnd)
+        .on("pressed", turnMethods._eventPressed)
+        .on("released", turnMethods._eventReleased)
+        .on("flip", turnMethods._flip);
 
-      $(this).parent().bind("start", data.eventHandlers.start);
+      $(this).parent().on("start", data.eventHandlers.start);
 
       $(document)
-        .bind(mouseEvents.move, data.eventHandlers.touchMove)
-        .bind(mouseEvents.up, data.eventHandlers.touchEnd);
+        .on(mouseEvents.move, data.eventHandlers.touchMove)
+        .on(mouseEvents.up, data.eventHandlers.touchEnd);
 
       // Set the initial page
 
@@ -343,14 +343,14 @@ var has3d,
       data.destroying = true;
 
       $.each(events, function (index, eventName) {
-        flipbook.unbind(eventName);
+        flipbook.off(eventName);
       });
 
-      this.parent().unbind("start", data.eventHandlers.start);
+      this.parent().off("start", data.eventHandlers.start);
 
       $(document)
-        .unbind(mouseEvents.move, data.eventHandlers.touchMove)
-        .unbind(mouseEvents.up, data.eventHandlers.touchEnd);
+        .off(mouseEvents.move, data.eventHandlers.touchMove)
+        .off(mouseEvents.up, data.eventHandlers.touchEnd);
 
       while (data.totalPages !== 0) {
         this.turn("removePage", data.totalPages);
@@ -1426,7 +1426,7 @@ var has3d,
             zIndex:
               (data.pageObjs[page].hasClass("hard")
                 ? pos.partZ[page]
-                : pos.pageZ[page]) || (fixed ? -1 : 0),
+                : pos.pageZ[page]) || (fixed ? 0 : 1),
           });
 
           if ((p = data.pages[page])) {
@@ -1612,7 +1612,7 @@ var has3d,
         if (options.when)
           for (var eventName in options.when)
             if (has(eventName, options.when)) {
-              this.unbind(eventName).bind(eventName, options.when[eventName]);
+              this.off(eventName).on(eventName, options.when[eventName]);
             }
 
         return this;
